@@ -66,7 +66,6 @@ PyYAML
 referencing
 requests
 requests-oauthlib
-rpds-py
 sniffio
 soupsieve
 sqlparse
