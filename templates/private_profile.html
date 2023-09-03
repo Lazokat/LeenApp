@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%block content%}
+<style>
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+.image {
+  background-color: #aaa;
+  width: 80%;
+  padding: 20px;
+}
+</style>
+ <div class="card">
+      <h2>{{private.user.username}}</h2>
+      <h5>{{private.name}},  {{private.created}}</h5>
+     {%if private.image%}
+      <img src="{{private.image.url}}" width="300" height="400"  alt="{{private.name}}">
+     {%endif%}
+  </div>
+{% if user.is_authenticated %}
+  <form action="{% url 'leena:profile_follows' object.pk %}" method="POST">
+    {% csrf_token %}
+      {%if private.user == user %}
+       <a href="{%url 'leena:delete_account' request.user.id %}"><h3>Delete your account</h3></a>
+      {%endif%}
+    {% if post_followed %}
+    <button type="submit" name="profile_id" value="{{object.id}}" class="btn btn-info">Unfollow</button>
+    {% else %}
+    <button type="submit" name="profile_id" value="{{object.id}}" class="btn btn-info">Follow</button>
+    {% endif %}
+  </form>
+{% else %}
+  <a class="btn btn-outline-info" href="{% url 'login' %}">Log in</a><br>
+{% endif %}
+<strong class="text-secondary">{{ number_follows }} Followers </strong>
+{%endblock%}

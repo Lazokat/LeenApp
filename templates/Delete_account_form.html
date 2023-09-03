@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+<hr>
+<br>
+{%block content%}
+ <form method="POST" >
+        {% csrf_token %}
+        Are you want to delete your account ?
+        <button class="btn btn-success" type="submit">Delete</button>
+     <br>
+        <a href="{%url 'leena:all_profile'%}">Cancel</a>
+    </form>
+{%endblock%}
