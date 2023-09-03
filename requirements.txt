@@ -19,7 +19,7 @@ deprecation
 dj-database-url
 dj-rest-auth
 Django
-django-allauth
+django-allauth==0.54.0
 django-bootstrap3
 django-ckeditor
 django-cors-headers
