@@ -15,7 +15,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.template.defaulttags import url
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static,serve
@@ -43,4 +42,4 @@ include("dj_rest_auth.registration.urls")),
         url_name="schema"), name="swagger-ui"),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if not settings.DEBUG:
-    urlpatterns += [ url(r'^uploads/(?P<path>.)$', serve,{'document_root': settings.MEDIA_ROOT}), url(r'^static/(?P<path>.)$', serve,{'document_root': settings.STATIC_ROOT}), ]
+    urlpatterns += [ path(r'^uploads/(?P<path>.)$', serve,{'document_root': settings.MEDIA_ROOT}), path(r'^static/(?P<path>.)$', serve,{'document_root': settings.STATIC_ROOT}), ]
