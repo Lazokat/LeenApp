@@ -36,7 +36,6 @@ python manage.py createsuperuser
 
 
 ## You can check site.
-https://leenapp-lazokat.onrender.com
 # LEARN AND SPREAD !😊
 #### contact with me:
 lazokattt@gmail.com
